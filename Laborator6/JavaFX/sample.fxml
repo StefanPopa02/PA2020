@@ -1,0 +1,57 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.CheckBox?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+    <center>
+        <Canvas fx:id="canvas" width="1440" height="750"/>
+    </center>
+    <bottom>
+        <HBox spacing="10" alignment="center">
+            <padding>
+                <Insets bottom="10" right="10"/>
+            </padding>
+            <Button fx:id="buttonLoad" text="Load" prefWidth="90" onAction="#onButtonClicked"/>
+            <Button fx:id="buttonSave" text="Save" prefWidth="90" onAction="#onButtonClicked"/>
+            <Button fx:id="buttonReset" text="Reset" prefWidth="90" onAction="#onButtonClicked"/>
+            <Button fx:id="buttonExit" text="Exit" prefWidth="90" onAction="#onButtonClicked"/>
+        </HBox>
+    </bottom>
+    <top>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <Label text="Number of sides:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Spinner fx:id="spinner" GridPane.rowIndex="0" GridPane.columnIndex="1" min="0" max="20" maxWidth="80" initialValue="6"/>
+            <ColorPicker fx:id="colorPicker" GridPane.rowIndex="0" GridPane.columnIndex="2" maxWidth="120"/>
+            <ComboBox fx:id="comboBox" GridPane.rowIndex="0" GridPane.columnIndex="3">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Standard"/>
+                        <String fx:value="Octogon"/>
+                        <String fx:value="Dodecagon"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Standard"/>
+                </value>
+            </ComboBox>
+            <CheckBox fx:id="checkBox" text="Eraser" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+            <Slider fx:id="slider" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="4" min="20" max="200" showTickLabels="true"
+                                    showTickMarks="true"/>
+        </GridPane>
+    </top>
+
+</BorderPane>
